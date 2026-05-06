@@ -269,17 +269,192 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
 /* ══════════════ SECTION DIVIDER ══════════════ */
 .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 4rem;}
 
-@media(max-width:860px){
-  nav{padding:1rem 2rem;}
-  nav.scrolled{padding:0.7rem 2rem;}
-  #hero{grid-template-columns:1fr;padding:6rem 2rem 3rem;}
-  .hero-visual{display:none;}
-  section{padding:4rem 2rem;}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
-  .pub-card{grid-template-columns:1fr;}
-  .project-card{grid-template-columns:1fr;}
+/* ══════════════ MOBILE HAMBURGER ══════════════ */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--accent);border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--accent);text-decoration:none;opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s,color 0.2s;}
+.mobile-menu.open a{opacity:1;transform:none;}
+.mobile-menu.open a:nth-child(1){transition-delay:0.05s;}
+.mobile-menu.open a:nth-child(2){transition-delay:0.1s;}
+.mobile-menu.open a:nth-child(3){transition-delay:0.15s;}
+.mobile-menu.open a:nth-child(4){transition-delay:0.2s;}
+.mobile-menu.open a:nth-child(5){transition-delay:0.25s;}
+.mobile-menu.open a:nth-child(6){transition-delay:0.3s;}
+.mobile-menu.open a:nth-child(7){transition-delay:0.35s;}
+.mobile-menu a:hover{color:var(--accent2);}
+.mobile-close{position:absolute;top:1.5rem;right:2rem;font-size:1.5rem;background:none;border:none;cursor:pointer;color:var(--muted);}
+
+/* ══════════════ DARK MODE ══════════════ */
+@media(prefers-color-scheme:dark){
+  :root{
+    --ink:#e8e4dc;
+    --paper:#0f1117;
+    --accent:#7eb4e8;
+    --accent2:#e05c4a;
+    --muted:#8a8480;
+    --card:#181c25;
+    --border:rgba(232,228,220,0.1);
+    --tag-bg:#1e2230;
+    --gold:#d4a017;
+    --gold-bg:#1e1a0e;
+  }
+
+  /* Loader */
+  #loader{background:#0f1117;}
+  .loader-bar{background:var(--accent);}
+
+  /* Nav */
+  nav{background:rgba(15,17,23,0.92);}
+
+  /* Canvas particles — lighter for dark bg */
+  #bg-canvas{opacity:0.18;}
+
+  /* Glitch colors */
+  .glitch-text.active::before{color:var(--accent2);}
+  .glitch-text.active::after{color:var(--gold);}
+
+  /* Award badge */
+  .award-hero-badge{background:#1e1a0e;border-color:#6b4f00;}
+  .award-hero-badge-text span{color:#b89040;}
+
+  /* Hero stat cards */
+  .stat-card{background:var(--card);border-color:var(--border);}
+
+  /* Achievements section */
+  #achievements{background:#0a0d14;}
+  .ach-card{border-color:rgba(232,228,220,0.08);}
+  .ach-card.gold{background:rgba(184,134,11,0.07);}
+
+  /* Cert display */
+  .cert-display{background:rgba(255,255,255,0.03);border-color:rgba(184,134,11,0.25);}
+  .cert-preview{background:linear-gradient(135deg,#1e1a0e,#2a2208);}
+
+  /* Metrics */
+  #metrics{background:#1a2a40;}
+
+  /* About */
+  #about{background:var(--card);border-color:var(--border);}
+  .edu-item{border-color:var(--border);}
+  .tl-item::before{border-color:var(--paper);}
+
+  /* Skills */
+  #skills{background:var(--paper);}
+  .skill-group{background:var(--card);border-color:var(--border);}
+  .tag{background:var(--tag-bg);color:var(--ink);}
+  .tag:hover{background:var(--accent);color:#0f1117;}
+  .skill-bar-track{background:var(--border);}
+
+  /* Projects */
+  #projects{background:var(--card);border-color:var(--border);}
+  .project-card{background:var(--paper);border-color:var(--border);}
+  .project-num{color:rgba(232,228,220,0.08);}
+  .metric-pill{background:#0d2a20;color:#5ecfa8;}
+
+  /* Experience */
+  #experience{background:var(--paper);}
+  .timeline{border-color:var(--border);}
+
+  /* Certifications */
+  #certifications{background:var(--card);border-color:var(--border);}
+  .cert-card{background:var(--paper);border-color:var(--border);}
+
+  /* Buttons */
+  .btn-outline{color:var(--accent);border-color:var(--accent);}
+  .btn-download{background:var(--gold-bg);color:var(--gold);border-color:#6b4f00;}
+
+  /* Contact links */
+  .contact-link-gold{color:var(--gold);border-color:rgba(212,160,23,0.35);}
+
+  /* Footer */
+  footer{background:#0a0d14;}
+
+  /* Mobile menu */
+  .mobile-menu{background:var(--paper);}
+
+  /* Cursor */
+  .cursor{background:var(--accent2);}
+  .cursor-ring{border-color:rgba(224,92,74,0.35);}
+  body.cursor-hover .cursor{background:var(--accent);}
+}
+
+/* ══════════════ RESPONSIVE — TABLET (≤1024px) ══════════════ */
+@media(max-width:1024px){
+  nav{padding:1.2rem 2.5rem;}
+  nav.scrolled{padding:0.85rem 2.5rem;}
+  #hero{padding:7rem 2.5rem 4rem;gap:2.5rem;}
+  section{padding:5rem 2.5rem;}
   .metrics-grid{grid-template-columns:repeat(2,1fr);}
-  .section-divider{margin:0 2rem;}
+  .metric-box:nth-child(2){border-right:none;}
+  .metric-box:nth-child(3){border-top:1px solid rgba(255,255,255,0.1);}
+  .metric-box:nth-child(4){border-top:1px solid rgba(255,255,255,0.1);border-right:none;}
+  h1{font-size:clamp(2.5rem,4.5vw,3.8rem);}
+  .section-divider{margin:0 2.5rem;}
+}
+
+/* ══════════════ RESPONSIVE — MOBILE (≤768px) ══════════════ */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  nav{padding:1rem 1.5rem;}
+  nav.scrolled{padding:0.75rem 1.5rem;}
+
+  #hero{grid-template-columns:1fr;padding:5.5rem 1.5rem 3rem;gap:2rem;}
+  .hero-visual{display:none;}
+  .hero-bg-text{font-size:clamp(5rem,18vw,10rem);right:-1rem;}
+  h1{font-size:clamp(2.4rem,8vw,3.5rem);}
+  .hero-desc{font-size:0.97rem;}
+  .btn-group{flex-direction:column;align-items:flex-start;}
+  .btn{width:100%;justify-content:center;}
+
+  section{padding:3.5rem 1.5rem;}
+  h2{font-size:clamp(1.8rem,6vw,2.4rem);margin-bottom:2rem;}
+
+  .achievements-grid{grid-template-columns:1fr;}
+  .cert-display{flex-direction:column;gap:1rem;}
+  .cert-preview{width:60px;height:76px;}
+
+  .metrics-grid{grid-template-columns:repeat(2,1fr);}
+  .metric-big{font-size:2.4rem;}
+
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+
+  .skills-grid{grid-template-columns:1fr 1fr;}
+
+  .pub-card{grid-template-columns:1fr;gap:1.5rem;}
+  .pub-btn{align-self:flex-start;}
+
+  .project-card{grid-template-columns:1fr;padding:1.5rem;}
+  .project-num{float:none;font-size:2rem;margin:0 0 0.5rem;}
+  .projects-list{gap:1.2rem;}
+
+  .timeline{padding-left:1.5rem;}
+  .tl-item::before{left:-2rem;}
+
+  .certs-grid{grid-template-columns:1fr;}
+
+  .contact-links{flex-direction:column;align-items:center;}
+  .contact-link{width:100%;max-width:320px;justify-content:center;}
+
+  .section-divider{margin:0 1.5rem;}
+  footer{padding:1.5rem;}
+}
+
+/* ══════════════ RESPONSIVE — SMALL MOBILE (≤420px) ══════════════ */
+@media(max-width:420px){
+  #hero{padding:5rem 1.2rem 2.5rem;}
+  section{padding:3rem 1.2rem;}
+  nav{padding:1rem 1.2rem;}
+  .skills-grid{grid-template-columns:1fr;}
+  .metrics-grid{grid-template-columns:1fr 1fr;}
+  .metric-box{padding:1.5rem 1rem;}
+  .metric-big{font-size:2rem;}
+  h1{font-size:clamp(2rem,10vw,3rem);}
+  .award-hero-badge{flex-direction:column;gap:0.4rem;text-align:center;}
 }
 </style>
 </head>
@@ -370,7 +545,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
     <div class="ach-card fade-in" style="transition-delay:0.1s">
       <span class="ach-icon">📄</span>
       <h3 class="ach-title">Research Publication</h3>
-      <p class="ach-sub">ResearchGate · DOI: 10.13140/RG.2.2.13628.40327</p>
+      <p class="ach-sub">ResearchGate · DOI: 10.13140/RG.2.2.17905.44646</p>
       <p class="ach-desc">Published original ML research on adaptive sliding-window KMeans for unsupervised industrial vibration state labeling. Silhouette score 0.667 — outperforming 3 baseline methods.</p>
       <span class="ach-badge blue">IIoT · ML Clustering</span>
     </div>
@@ -429,7 +604,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
     <div class="about-text fade-left">
       <p class="section-label">// Who I Am</p>
       <h2>Building where data meets machines</h2>
-      <p>I'm a Data Analyst at Signals & Systems India (Sands India) in Chennai, working across industrial IoT, machine learning, and data engineering. My work spans from ETL pipeline architecture and Power BI dashboards to ML modeling and published research.</p>
+      <p>I'm a Data Analyst at Signals & Systems India (Sands India) in Hyderabad, working across industrial IoT, machine learning, and data engineering. My work spans from ETL pipeline architecture and Power BI dashboards to ML modeling and published research.</p>
       <p>Recognized internationally as Runner-Up in the Open Doors Russian Scholarship Olympiad for Computer and Data Science — bringing both practical engineering depth and research-level analytical thinking.</p>
       <p>Now actively seeking opportunities in credit, product, and growth analytics environments where I can apply end-to-end data skills at scale.</p>
     </div>
@@ -539,7 +714,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
         <p class="project-desc">Adaptive sliding-window KMeans clustering pipeline for real-time operational state labeling of industrial bearing vibration data. Cut manual analysis effort by 80%, achieved silhouette score 0.667 — deployed as reusable framework for future analytics projects.</p>
         <div class="project-meta"><span class="metric-pill">Silhouette 0.667</span><span class="metric-pill">80% Less Effort</span><span class="tag">Python · Scikit-learn</span></div>
       </div>
-      <a class="project-link" href="#">Internal Project</a>
+      <a class="project-link" href="https://github.com/Aravind-Likhitapudi" target="_blank">GitHub ↗</a>
     </div>
 
     <div class="project-card fade-in" style="transition-delay:0.08s">
@@ -550,7 +725,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
         <p class="project-desc">End-to-end churn prediction pipeline identifying high-risk customers from behavioral and transactional patterns. Engineered RFM-based features, tenure segmentation, and usage trends. Power BI dashboard showing churn probability by segment for targeted retention campaigns.</p>
         <div class="project-meta"><span class="metric-pill">86% Accuracy</span><span class="metric-pill">12–15% Churn Reduction</span><span class="tag">Python · SQL · Power BI</span></div>
       </div>
-      <a class="project-link" href="#">Internal Project</a>
+      <a class="project-link" href="https://github.com/Aravind-Likhitapudi" target="_blank">GitHub ↗</a>
     </div>
 
     <div class="project-card fade-in" style="transition-delay:0.16s">
@@ -561,7 +736,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
         <p class="project-desc">ARIMA and Prophet time-series models on multi-region sales data improving forecast accuracy by 18% over baseline. Scalable SQL data model covering revenue, margin, product performance, and seasonality. Executive Power BI dashboard with drill-down YoY Growth % and Regional Contribution.</p>
         <div class="project-meta"><span class="metric-pill">+18% Forecast Accuracy</span><span class="tag">Python · SQL · Power BI</span></div>
       </div>
-      <a class="project-link" href="#">Internal Project</a>
+      <a class="project-link" href="https://github.com/Aravind-Likhitapudi" target="_blank">GitHub ↗</a>
     </div>
 
     <div class="project-card fade-in" style="transition-delay:0.24s">
@@ -572,7 +747,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
         <p class="project-desc">Python framework automatically detecting missing values, duplicates, and inconsistencies across large-scale datasets before they reach reporting layers. Real-time Power BI dashboard monitoring completeness, accuracy, and duplication rate as live KPIs — eliminating reactive data firefighting.</p>
         <div class="project-meta"><span class="metric-pill">Real-Time Monitoring</span><span class="tag">Python · Power BI</span></div>
       </div>
-      <a class="project-link" href="#">Internal Project</a>
+      <a class="project-link" href="https://github.com/Aravind-Likhitapudi" target="_blank">GitHub ↗</a>
     </div>
 
     <div class="project-card fade-in" style="transition-delay:0.32s">
@@ -594,7 +769,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
         <p class="project-desc">End-to-end energy analytics platform with synthetic dataset generation, EDA, anomaly detection models, FastAPI backend, MLflow tracking, and Docker containerization.</p>
         <div class="project-meta"><span class="metric-pill">FastAPI · MLflow</span><span class="tag">Python · Docker</span></div>
       </div>
-      <a class="project-link" href="#">Internal Project</a>
+      <a class="project-link" href="https://github.com/Aravind-Likhitapudi" target="_blank">GitHub ↗</a>
     </div>
   </div>
 </section>
@@ -607,7 +782,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
     <div class="tl-item fade-in">
       <p class="tl-date">JULY 2023 — PRESENT</p>
       <p class="tl-role">Data Analyst</p>
-      <p class="tl-company">Signals & Systems India Pvt. Ltd., Chennai</p>
+      <p class="tl-company">Signals & Systems India Pvt. Ltd., Hyderabad</p>
       <ul class="tl-points">
         <li>Improved data processing efficiency by 40% by architecting end-to-end ETL pipelines in Python and MS SQL — consolidating data from multiple sources into a single source of truth</li>
         <li>Reduced manual reporting effort by 30–40% by automating vendor and procurement workflows using Python and SQL</li>
@@ -674,7 +849,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
     <a class="contact-link" href="mailto:aravindlikhitapudi@gmail.com">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Email Me
     </a>
-    <a class="contact-link" href="https://www.linkedin.com/in/aravind-likhitapudi/" target="_blank">
+    <a class="contact-link" href="https://linkedin.com/in/likhitapudi-aravind" target="_blank">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn
     </a>
     <a class="contact-link" href="https://github.com/Aravind-Likhitapudi" target="_blank">
@@ -689,7 +864,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
   </div>
 </section>
 
-<footer>Aravind Likhitapudi · India · Open Doors Runner-Up 2026 · aravindlikhitapudi@gmail.com · +91 9573486691</footer>
+<footer>Aravind Likhitapudi · Hyderabad, India · Open Doors Runner-Up 2026 · aravindlikhitapudi@gmail.com · +91 9573486691</footer>
 
 <script>
 /* ══════════════ PAGE LOADER ══════════════ */
