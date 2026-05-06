@@ -53,7 +53,7 @@ body.cursor-hover .cursor{width:16px;height:16px;background:var(--accent);}
 body.cursor-hover .cursor-ring{width:56px;height:56px;border-color:rgba(26,58,92,0.3);}
 
 /* ══════════════ HERO ══════════════ */
-#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding:8rem 4rem 4rem;gap:4rem;align-items:center;overflow:hidden;}
+#AL{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding:8rem 4rem 4rem;gap:4rem;align-items:center;overflow:hidden;}
 .hero-bg-text{position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'DM Serif Display',serif;font-size:clamp(8rem,16vw,18rem);color:rgba(26,58,92,0.04);pointer-events:none;user-select:none;white-space:nowrap;line-height:1;animation:float-text 8s ease-in-out infinite;}
 @keyframes float-text{0%,100%{transform:translateY(-50%) translateX(0);}50%{transform:translateY(-52%) translateX(-1rem);}}
 .hero-eyebrow{font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.2rem;opacity:0;animation:slide-up 0.6s 1.8s ease forwards;}
@@ -386,7 +386,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
 @media(max-width:1024px){
   nav{padding:1.2rem 2.5rem;}
   nav.scrolled{padding:0.85rem 2.5rem;}
-  #hero{padding:7rem 2.5rem 4rem;gap:2.5rem;}
+  #AL{padding:7rem 2.5rem 4rem;gap:2.5rem;}
   section{padding:5rem 2.5rem;}
   .metrics-grid{grid-template-columns:repeat(2,1fr);}
   .metric-box:nth-child(2){border-right:none;}
@@ -403,7 +403,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
   nav{padding:1rem 1.5rem;}
   nav.scrolled{padding:0.75rem 1.5rem;}
 
-  #hero{grid-template-columns:1fr;padding:5.5rem 1.5rem 3rem;gap:2rem;}
+  #AL{grid-template-columns:1fr;padding:5.5rem 1.5rem 3rem;gap:2rem;}
   .hero-visual{display:none;}
   .hero-bg-text{font-size:clamp(5rem,18vw,10rem);right:-1rem;}
   h1{font-size:clamp(2.4rem,8vw,3.5rem);}
@@ -446,7 +446,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
 
 /* ══════════════ RESPONSIVE — SMALL MOBILE (≤420px) ══════════════ */
 @media(max-width:420px){
-  #hero{padding:5rem 1.2rem 2.5rem;}
+  #AL{padding:5rem 1.2rem 2.5rem;}
   section{padding:3rem 1.2rem;}
   nav{padding:1rem 1.2rem;}
   .skills-grid{grid-template-columns:1fr;}
@@ -473,7 +473,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.2);text-align:center;paddi
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a class="nav-logo" href="#hero">AL.</a>
+  <a class="nav-logo" href="#AL">AL.</a>
   <ul class="nav-links">
     <li><a href="#achievements">Awards</a></li>
     <li><a href="#about">About</a></li>
